@@ -30,12 +30,17 @@
 
   /* petals */
   .petals-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-  .petal { position: absolute; animation: floatDown linear infinite; opacity: 0.3; }
+  .petal { 
+    position: absolute; 
+    animation: floatDown linear infinite; 
+    opacity: 0.3;
+    will-change: transform;
+  }
   @keyframes floatDown {
-    0%   { transform: translateY(-40px) rotate(0deg); opacity: 0; }
+    0%   { transform: translate3d(0, -40px, 0) rotate(0deg); opacity: 0; }
     10%  { opacity: 0.3; }
     90%  { opacity: 0.25; }
-    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    100% { transform: translate3d(0, 110vh, 0) rotate(360deg); opacity: 0; }
   }
 
   /* screens */
@@ -81,7 +86,7 @@
   /* hidden yt */
   #ytf { position: fixed; width: 0; height: 0; bottom: 0; left: 0; border: none; }
 
-  /* page layout — IDENTICAL to index(7) */
+  /* page layout */
   .page {
     position: relative; z-index: 1; max-width: 480px; margin: 0 auto;
     padding: 5rem 1.5rem 4rem; min-height: 100vh;
@@ -95,7 +100,7 @@
   .header h1 em { font-style: italic; color: var(--rose); }
   .pulse { display: inline-block; animation: heartbeat 1.5s ease infinite; }
 
-  /* standard card — SAME as index(7) */
+  /* standard card */
   .card {
     background: white; border-radius: 24px; padding: 2rem 1.8rem; width: 100%;
     box-shadow: 0 8px 40px rgba(180,80,90,0.1); animation: fadeUp 0.9s ease 0.15s both;
@@ -106,12 +111,12 @@
   .card p + p { margin-top: 1rem; }
   .highlight { display: inline-block; background: linear-gradient(135deg, var(--warm), var(--blush)); border-radius: 8px; padding: 0.15em 0.55em; font-weight: 500; color: var(--deep); }
 
-  /* real-talk style — SAME */
+  /* real-talk style */
   .real-talk {
     background: linear-gradient(135deg,#fff5f5,#fff0e8); border: 1.5px solid var(--blush);
     border-radius: 20px; padding: 1.6rem; width: 100%; animation: fadeUp 0.9s ease 0.3s both;
   }
-  .real-talk .tag { display: inline-block; background: var(--rose); color: white; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25em 0.8em; border-radius: 99px; margin-bottom: 1rem; }
+  .real-talk .tag { display: inline-block; background: var(--rose); color: white; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25em 0.8em; border-radius: 99px; margin-bottom: 0.8rem; }
   .real-talk p { font-size: 0.97rem; line-height: 1.75; color: #5a3535; }
   .real-talk p + p { margin-top: 0.9rem; }
 
@@ -124,7 +129,7 @@
   .dark-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--rose), var(--gold), var(--rose)); }
   .dark-card p { font-size: 1rem; line-height: 1.82; color: rgba(253,246,238,0.72); font-weight: 300; }
   .dark-card p + p { margin-top: 1rem; }
-  .dark-card .tag { display: inline-block; background: var(--gold); color: var(--ink); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25em 0.8em; border-radius: 99px; margin-bottom: 1rem; font-weight: 600; }
+  .dark-card .tag { display: inline-block; background: var(--gold); color: var(--ink); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25em 0.8em; border-radius: 99px; margin-bottom: 0.8rem; }
 
   /* date-card style for timer */
   .timer-card { background: var(--deep); color: white; border-radius: 20px; padding: 1.6rem; width: 100%; text-align: center; animation: fadeUp 0.9s ease 0.45s both; }
@@ -148,7 +153,7 @@
   .story-item p { font-size: 0.97rem; line-height: 1.82; color: #5a3535; font-weight: 300; }
   .story-item p + p { margin-top: 0.9rem; }
 
-  /* reasons — same dark vibe */
+  /* reasons */
   .reasons-label { width: 100%; animation: fadeUp 0.9s ease both; }
   .reasons-label h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,5vw,1.9rem); color: var(--deep); margin-bottom: 0.3rem; }
   .reasons-label h2 em { font-style: italic; color: var(--rose); }
@@ -171,15 +176,16 @@
     position: relative; overflow: hidden;
   }
   .vow-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold), var(--rose), var(--gold)); }
-  .vow-card .tag { display: inline-block; background: var(--gold); color: var(--ink); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25em 0.8em; border-radius: 99px; margin-bottom: 1.2rem; font-weight: 600; }
+  .vow-card .tag { display: inline-block; background: var(--gold); color: var(--ink); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25em 0.8em; border-radius: 99px; margin-bottom: 0.8rem; }
   .vow-line { display: flex; gap: 0.9rem; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid rgba(217,123,132,0.12); }
   .vow-line:last-child { border-bottom: none; padding-bottom: 0; }
   .vow-dot { color: var(--rose); font-size: 0.9rem; flex-shrink: 0; padding-top: 0.18rem; }
   .vow-line p { font-size: 0.95rem; line-height: 1.75; color: #5a3535; font-weight: 300; }
+  .vow-intro { font-size: 0.97rem; line-height: 1.78; color: #5a3535; font-weight: 300; font-style: italic; margin-bottom: 1.3rem; }
 
   /* challenges */
   .ch-item {
-    background: white; border-radius: 18px; padding: 1.4rem 1.4rem; width: 100%;
+    background: white; border-radius: 18px; padding: 1.4rem; width: 100%;
     box-shadow: 0 4px 20px rgba(180,80,90,0.07); display: flex; gap: 1rem; align-items: flex-start;
     animation: fadeUp 0.9s ease both;
   }
@@ -196,7 +202,7 @@
   .map-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
   .map-pill { background: var(--warm); border: 1px solid var(--blush); border-radius: 99px; padding: 0.2em 0.75em; font-size: 0.72rem; color: var(--deep); }
   .map-iframe { width: 100%; height: 220px; border: none; display: block; }
-  .map-open-btn { display: block; width: 100%; background: linear-gradient(135deg, var(--rose), var(--deep)); color: white; text-align: center; padding: 0.85rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
+  .map-open-btn { display: block; width: 100%; background: linear-gradient(135deg, var(--rose), var(--deep)); color: white; text-align: center; padding: 0.85rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; border: none; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
   .map-open-btn:hover { opacity: 0.88; }
 
   /* note / wish inputs */
@@ -208,6 +214,7 @@
   .note-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--gold), var(--blush)); }
   .note-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--deep); margin-bottom: 0.3rem; }
   .note-card .note-sub { font-size: 0.8rem; color: var(--soft); margin-bottom: 1rem; font-weight: 300; }
+  .note-label { display: block; font-size: 0.8rem; color: var(--soft); margin-bottom: 0.3rem; font-weight: 500; }
   .note-input {
     width: 100%; min-height: 90px; border: 1.5px solid var(--blush); border-radius: 14px;
     padding: 0.9rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.93rem;
@@ -253,16 +260,17 @@
   }
   .formal-sig span { display: block; font-size: 0.72rem; font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.55; margin-top: 0.2rem; }
 
-  /* form section — SAME as index(7) */
+  /* form section */
   .form-section { width: 100%; animation: fadeUp 0.9s ease 0.65s both; }
   .form-section h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--deep); text-align: center; margin-bottom: 1.4rem; }
   .form-section h2 span { color: var(--rose); }
   .btn-group { display: flex; flex-direction: column; gap: 0.9rem; }
-  .btn { width: 100%; padding: 1rem 1.5rem; border-radius: 14px; font-family: 'DM Sans', sans-serif; font-size: 0.97rem; font-weight: 500; cursor: pointer; transition: all 0.2s ease; border: none; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+  .btn { width: 100%; padding: 1rem 1.5rem; border-radius: 14px; font-family: 'DM Sans', sans-serif; font-size: 0.97rem; font-weight: 500; cursor: pointer; transition: all 0.2s ease; border: none; display: flex; align-items: center; justify-content: center; }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; }
   .btn-yes { background: linear-gradient(135deg, var(--rose), var(--deep)); color: white; box-shadow: 0 6px 20px rgba(137,58,74,0.3); }
-  .btn-yes:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(137,58,74,0.38); }
+  .btn-yes:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(137,58,74,0.38); }
   .btn-no { background: white; color: var(--rose); border: 1.5px solid var(--blush); }
-  .btn-no:hover { background: #fff5f5; border-color: var(--rose); }
+  .btn-no:hover:not(:disabled) { background: #fff5f5; border-color: var(--rose); }
   .maybe-msg { display: none; text-align: center; padding: 1.5rem 1rem; animation: fadeUp 0.4s ease both; }
   .maybe-msg p { color: #7a4545; font-size: 0.95rem; line-height: 1.7; }
 
@@ -295,7 +303,29 @@
   /* animations */
   @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
   @keyframes heartbeat { 0%,100% { transform:scale(1); } 14% { transform:scale(1.15); } 28% { transform:scale(1); } 42% { transform:scale(1.1); } 56% { transform:scale(1); } }
-  @keyframes popIn { from { opacity:0; transform:scale(0.75); } to { opacity:1; transform:scale(1); } }
+
+  /* story animation delays */
+  .story-item:nth-child(2) { animation-delay: 0.1s; }
+  .story-item:nth-child(3) { animation-delay: 0.15s; }
+  .story-item:nth-child(4) { animation-delay: 0.2s; }
+  .story-item:nth-child(5) { animation-delay: 0.25s; }
+
+  .reason-item:nth-child(2) { animation-delay: 0.05s; }
+  .reason-item:nth-child(3) { animation-delay: 0.1s; }
+  .reason-item:nth-child(4) { animation-delay: 0.15s; }
+  .reason-item:nth-child(5) { animation-delay: 0.2s; }
+  .reason-item:nth-child(6) { animation-delay: 0.25s; }
+  .reason-item:nth-child(7) { animation-delay: 0.3s; }
+  .reason-item:nth-child(8) { animation-delay: 0.35s; }
+
+  .ch-item:nth-child(2) { animation-delay: 0.05s; }
+  .ch-item:nth-child(3) { animation-delay: 0.1s; }
+  .ch-item:nth-child(4) { animation-delay: 0.15s; }
+  .ch-item:nth-child(5) { animation-delay: 0.2s; }
+  .ch-item:nth-child(6) { animation-delay: 0.25s; }
+
+  .note-card:nth-of-type(1) { animation-delay: 0.2s; }
+  .note-card:nth-of-type(2) { animation-delay: 0.25s; }
 </style>
 </head>
 <body>
@@ -316,11 +346,10 @@
       <div class="bar still" id="b3"></div>
     </div>
   </div>
-  <button class="play-btn" id="playBtn" onclick="toggleMusic()">&#9654;</button>
+  <button class="play-btn" id="playBtn" aria-label="Play music">&#9654;</button>
 </div>
 
-<iframe id="ytf" src="about:blank" allow="autoplay"></iframe>
-
+<iframe id="ytf" src="about:blank" allow="autoplay" aria-hidden="true"></iframe>
 
 <!-- ═══════════════ MAIN SCREEN ═══════════════ -->
 <div id="mainScreen" class="screen active">
@@ -342,34 +371,34 @@
     <!-- how it started -->
     <div class="real-talk">
       <span class="tag">how it started</span>
-      <p>i was on tiktok minding my own business. scrolling, not looking for anything. then i saw you. didn't even know your name. i liked the video and kept swiping but then i landed on your reposts and something in me just stopped.</p>
-      <p>something was off with you, i could feel it through a screen. and i couldn't scroll past it. i genuinely couldn't. so on may 21st, 10:49pm, i went to your instagram and i typed: <span class="highlight">"hi pelo, went through your reposts and you don't seem fine at all, wanna vent? i'm willing to listen."</span></p>
+      <p>i was on tiktok minding my own business. scrolling, not looking for anything. then i saw you. didn't even know your name. i liked the video and kept swiping but then i landed on your reposts and something made me stop.</p>
+      <p>something was off with you, i could feel it through a screen. and i couldn't scroll past it. i genuinely couldn't. so on may 21st, 10:49pm, i went to your instagram and i typed: "hey pelo, i don't know you but i'm drawn to the pain in your reposts. you deserve someone who doesn't scroll past. i'm here if you need to vent."</p>
       <p>no game. no pickup line. just care. that's how this started. and i'd do it again a thousand times.</p>
     </div>
 
     <!-- story items -->
-    <div class="story-item" style="animation-delay:0.1s;">
+    <div class="story-item">
       <div class="story-num">01</div>
       <h3>she said "sure"</h3>
-      <p>you didn't open up easy. "hey you know i don't vent on text." fair enough, pelo. so i asked if a call would do. you thought about it for three days. then on may 24th you said: <span class="highlight">sure.</span></p>
+      <p>you didn't open up easy. "hey you know i don't vent on text." fair enough, pelo. so i asked if a call would do. you thought about it for three days. then on may 24th you said: "okay, call me after school."</p>
       <p>i dropped my number same day. no hesitation. told you i'm always available. and i meant every single word of that.</p>
     </div>
 
-    <div class="story-item" style="animation-delay:0.15s;">
+    <div class="story-item">
       <div class="story-num">02</div>
       <h3>the first real conversation</h3>
-      <p>may 28th. you texted first on whatsapp. you came looking for a different mpho and got me instead. and we just... talked. about school, about life, about nothing at all. i was at school on a tablet that day, walking around just to stay near the wifi signal so i could keep talking to you.</p>
+      <p>may 28th. you texted first on whatsapp. you came looking for a different mpho and got me instead. and we just... talked. about school, about life, about nothing at all. i was at school on a tuesday morning but i didn't care about that. i cared about what you were saying.</p>
       <p>i didn't go looking for you but i'm so grateful the universe put you in my scrolling path.</p>
     </div>
 
-    <div class="story-item" style="animation-delay:0.2s;">
+    <div class="story-item">
       <div class="story-num">03</div>
       <h3>the calls that never ended</h3>
-      <p>our calls go for hours. not minutes. hours. midnight, 1am, 2am, 3am and we'd still be on. you'd be washing dishes in the background, i'd be walking to find a wifi signal in my house and neither of us wanted to hang up first.</p>
+      <p>our calls go for hours. not minutes. hours. midnight, 1am, 2am, 3am and we'd still be on. you'd be washing dishes in the background, i'd be walking to find a wifi signal in my house and neither of us cared about the logistics.</p>
       <p>may 31st you still wanted to call even though i told you mic quality was bad. you didn't care. that said everything.</p>
     </div>
 
-    <div class="story-item" style="animation-delay:0.25s;">
+    <div class="story-item">
       <div class="story-num">04</div>
       <h3>july 4th — "i love you"</h3>
       <p>on a call. no big build up. no planned moment. just the natural thing that came out after weeks of being us. we both said it. and everything shifted.</p>
@@ -387,7 +416,7 @@
       </div>
     </div>
 
-    <!-- the unsent messages section — creative extra -->
+    <!-- the unsent messages section -->
     <div class="dark-card">
       <span class="tag">things i never sent</span>
       <p>there were nights i typed something out and then deleted it because i didn't know if it was too much. so here they are, the things i held back:</p>
@@ -404,49 +433,49 @@
       <h2>the things i see <em>when i look at you</em></h2>
     </div>
 
-    <div class="reason-item" style="animation-delay:0.05s;">
+    <div class="reason-item">
       <span class="reason-num">01</span>
       <h3>your laugh</h3>
-      <p>i don't know how to explain what it does to me. it's not just a sound, it's a feeling. when you laugh properly, like when you're really gone, everything in my chest just settles. i'd go out of my way every single day just to be the reason for it.</p>
+      <p>i don't know how to explain what it does to me. it's not just a sound, it's a feeling. when you laugh properly, like when you're really gone, everything in my chest just settles. i'd go out of my way to hear that laugh again.</p>
     </div>
 
-    <div class="reason-item" style="animation-delay:0.1s;">
+    <div class="reason-item">
       <span class="reason-num">02</span>
       <h3>the way you care</h3>
-      <p>you told me sorry on june 5th for something you thought made me uncomfortable. i wasn't even upset. but the fact that you checked, the fact that you sat with it until you said something — that's not common, pelo. people don't love like that without thinking. you do.</p>
+      <p>you told me sorry on june 5th for something you thought made me uncomfortable. i wasn't even upset. but the fact that you checked, the fact that you sat with it until you said something — that's you. that's how you move.</p>
     </div>
 
-    <div class="reason-item" style="animation-delay:0.15s;">
+    <div class="reason-item">
       <span class="reason-num">03</span>
       <h3>you're lovably, beautifully weird</h3>
-      <p>and i mean that as the highest thing i could say. you're not like anyone else. the way your brain works, the things that make you laugh, the things that get you going — it's all yours. uniquely, completely yours. and i'm addicted to discovering more of it.</p>
+      <p>and i mean that as the highest thing i could say. you're not like anyone else. the way your brain works, the things that make you laugh, the things that get you going — it's all uniquely, perfectly you.</p>
     </div>
 
-    <div class="reason-item" style="animation-delay:0.2s;">
+    <div class="reason-item">
       <span class="reason-num">04</span>
       <h3>your empathy is a superpower</h3>
-      <p>you feel things deeply. not just for yourself but for people around you. that's rare in a world where most people are too busy to notice. you notice. you feel. and then you actually do something about it. i see that.</p>
+      <p>you feel things deeply. not just for yourself but for people around you. that's rare in a world where most people are too busy to notice. you notice. you feel. and then you actually do something about it.</p>
     </div>
 
-    <div class="reason-item" style="animation-delay:0.25s;">
+    <div class="reason-item">
       <span class="reason-num">05</span>
       <h3>you know how to say sorry</h3>
-      <p>most people would rather be right than honest. you chose honesty. you recognised when something went wrong and you named it without being asked to. that takes more courage than people realise. and it tells me everything about the kind of person you are.</p>
+      <p>most people would rather be right than honest. you chose honesty. you recognised when something went wrong and you named it without being asked to. that takes more courage than people realise.</p>
     </div>
 
-    <div class="reason-item" style="animation-delay:0.3s;">
+    <div class="reason-item">
       <span class="reason-num">06</span>
       <h3>you are a healing soul</h3>
-      <p>i saw pain in your reposts before i even knew your voice. i didn't run. i moved closer. because something in me knew you were worth knowing properly. you're the kind of person who deserves someone who chooses to stay in the hard parts too, not just the good ones. i want to be that person for you.</p>
+      <p>i saw pain in your reposts before i even knew your voice. i didn't run. i moved closer. because something in me knew you were worth knowing properly. you're the kind of person who deserves someone who stays.</p>
     </div>
 
-    <div class="reason-item" style="animation-delay:0.35s;">
+    <div class="reason-item">
       <span class="reason-num">07</span>
       <h3>you make me want to be better</h3>
-      <p>i study harder because of you. i go home and i want to have things to tell you. i want to be someone you're proud to call yours. you do that to me without even knowing you're doing it. that's not something you find everywhere.</p>
+      <p>i study harder because of you. i go home and i want to have things to tell you. i want to be someone you're proud to call yours. you do that to me without even knowing you're doing it. that matters.</p>
     </div>
 
-    <!-- things only we know — creative extra -->
+    <!-- things only we know -->
     <div class="real-talk">
       <span class="tag">only we know this</span>
       <p>you got my number from tiktok and texted me thinking i was someone else. and it still worked out.</p>
@@ -458,7 +487,7 @@
     <!-- vows -->
     <div class="vow-card">
       <span class="tag">what i'm promising you</span>
-      <p style="font-size:0.97rem; line-height:1.78; color:#5a3535; font-weight:300; font-style:italic; margin-bottom:1.3rem;">"this isn't just words. i'm telling you what you're actually signing up for."</p>
+      <p class="vow-intro">"this isn't just words. i'm telling you what you're actually signing up for. these aren't pretty promises, they're real ones."</p>
 
       <div class="vow-line">
         <span class="vow-dot">♡</span>
@@ -500,23 +529,23 @@
       <h2>what we'll face <em>and how we'll face it</em></h2>
     </div>
 
-    <div class="ch-item" style="animation-delay:0.05s;">
+    <div class="ch-item">
       <div class="ch-icon">📍</div>
       <div class="ch-text">
         <h4>the distance</h4>
-        <p>casheen to nelspruit is roughly 480km and about 5 hours by road. it's real. but we've been doing long distance since day one without even a label. we already proved we can hold something across that gap.</p>
+        <p>casheen to nelspruit is roughly 480km and about 5 hours by road. it's real. but we've been doing long distance since day one without even a label. we already proved we can hold something across the distance.</p>
       </div>
     </div>
 
-    <div class="ch-item" style="animation-delay:0.1s;">
+    <div class="ch-item">
       <div class="ch-icon">📚</div>
       <div class="ch-text">
         <h4>matric</h4>
-        <p>we're both in it. there will be days where one of us goes quiet and it's not rejection, it's just pressure. we've talked about study sessions before. we support each other through this, not compete with it.</p>
+        <p>we're both in it. there will be days where one of us goes quiet and it's not rejection, it's just pressure. we've talked about study sessions before. we support each other through this, not against it.</p>
       </div>
     </div>
 
-    <div class="ch-item" style="animation-delay:0.15s;">
+    <div class="ch-item">
       <div class="ch-icon">🔇</div>
       <div class="ch-text">
         <h4>the quiet days</h4>
@@ -524,7 +553,7 @@
       </div>
     </div>
 
-    <div class="ch-item" style="animation-delay:0.2s;">
+    <div class="ch-item">
       <div class="ch-icon">🤝</div>
       <div class="ch-text">
         <h4>building trust slowly</h4>
@@ -532,7 +561,7 @@
       </div>
     </div>
 
-    <div class="ch-item" style="animation-delay:0.25s;">
+    <div class="ch-item">
       <div class="ch-icon">💬</div>
       <div class="ch-text">
         <h4>hard conversations</h4>
@@ -555,11 +584,12 @@
       </div>
       <iframe class="map-iframe"
         src="https://maps.google.com/maps?saddr=Nelspruit,+Mpumalanga,+South+Africa&daddr=Rustenburg,+North+West,+South+Africa&z=7&output=embed"
+        title="Map showing distance between Nelspruit and Rustenburg"
         allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
       <a class="map-open-btn"
         href="https://www.google.com/maps/dir/Nelspruit,+Mpumalanga/Rustenburg,+North+West"
-        target="_blank">
+        target="_blank" rel="noopener">
         see the road between us
       </a>
     </div>
@@ -568,13 +598,15 @@
     <div class="note-card">
       <h3>write me something, pelo</h3>
       <p class="note-sub">anything at all. what are you feeling right now reading this.</p>
-      <textarea class="note-input" id="noteInput" placeholder="type here... this is just between us"></textarea>
+      <label for="noteInput" class="note-label">Your message to mpho:</label>
+      <textarea class="note-input" id="noteInput" placeholder="type here... this is just between us" autocomplete="off"></textarea>
     </div>
 
-    <div class="note-card" style="animation-delay:0.25s;">
+    <div class="note-card">
       <h3>what do you wish for us</h3>
       <p class="note-sub">one thing. anything. what do you hope for when you think about us.</p>
-      <textarea class="note-input" id="wishInput" placeholder="i wish that we..." style="min-height:75px;"></textarea>
+      <label for="wishInput" class="note-label">Your wish for us:</label>
+      <textarea class="note-input" id="wishInput" placeholder="i wish that we..." style="min-height:75px;" autocomplete="off"></textarea>
     </div>
 
     <!-- formal proposal -->
@@ -590,8 +622,8 @@
         <div class="formal-body">
           <p>i, mpho, am formally and sincerely requesting that you, boipelo, become my girlfriend.</p>
           <p>not in a casual way. not in a "let's see where it goes" way. i mean properly, officially, intentionally. i want to call you mine and mean it with everything.</p>
-          <p>we started from a tiktok scroll and a dm at 10pm. we turned into hours on the phone, "i love you" on july 4th, and whatever this thing is that makes me smile before i even say hello. that doesn't happen for nothing.</p>
-          <p>i am not offering you perfect. i am offering you present. i am offering you a person who showed up for you before you even gave him a reason to, and who will keep showing up every single day you let him.</p>
+          <p>we started from a tiktok scroll and a dm at 10pm. we turned into hours on the phone, "i love you" on july 4th, and whatever this thing is that makes me smile before i even say hello. that's not accident. that's something real.</p>
+          <p>i am not offering you perfect. i am offering you present. i am offering you a person who showed up for you before you even gave him a reason to, and who will keep showing up every single time.</p>
           <p>a relationship is built by two people. i've watched you. i've seen how you love, how you apologise, how you care, how you laugh. i want to build something real with exactly that person.</p>
           <p>so this is me, asking you properly, the way you deserve to be asked.</p>
         </div>
@@ -607,8 +639,8 @@
     <div class="form-section">
       <h2>so pelo, <span>will you be mine?</span></h2>
       <div class="btn-group" id="btnGroup">
-        <button class="btn btn-yes" onclick="submitAnswer('yes')">yes, always. i'm yours 🤍</button>
-        <button class="btn btn-no"  onclick="submitAnswer('no')">let me think about it…</button>
+        <button class="btn btn-yes" id="yesBtn">yes, always. i'm yours 🤍</button>
+        <button class="btn btn-no" id="noBtn">let me think about it…</button>
       </div>
       <div class="maybe-msg" id="maybeMsg">
         <p>it's okay pelo. i'm not going anywhere.<br>i'll be right here when you're ready.<br>i always have been 🤍</p>
@@ -626,7 +658,6 @@
 
   </div>
 </div>
-
 
 <!-- ═══════════════ YES SCREEN ═══════════════ -->
 <div id="yesScreen" class="screen">
@@ -652,7 +683,7 @@
     <div class="yes-msg-card">
       <p>pelo.</p>
       <p>you have absolutely no idea what you just did.</p>
-      <p>i came to your dms a stranger. just a guy who saw something hurting in your reposts and couldn't keep scrolling. somewhere between the wifi dropping and the 3am calls and the first "i love you", you became the person i think about before i fall asleep and the reason i smile for no reason.</p>
+      <p>i came to your dms a stranger. just a guy who saw something hurting in your reposts and couldn't keep scrolling. somewhere between the wifi dropping and the 3am calls and the first "i love you" on a regular tuesday, you became everything.</p>
       <p>i'm not promising you easy. i'm promising you real. i'm promising you a person who chose you before you even gave him a reason to, and who will never stop being glad he did.</p>
       <p>the distance is just kilometres. we'll close it. and until then i'll be on every call, every night, every time you need me.</p>
       <p>you're mine now. officially. and i am so proud of that.</p>
@@ -669,11 +700,12 @@
       </div>
       <iframe class="map-iframe"
         src="https://maps.google.com/maps?saddr=Nelspruit,+Mpumalanga,+South+Africa&daddr=Rustenburg,+North+West,+South+Africa&z=7&output=embed"
+        title="Map showing distance between Nelspruit and Rustenburg"
         allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
       <a class="map-open-btn"
         href="https://www.google.com/maps/dir/Nelspruit,+Mpumalanga/Rustenburg,+North+West"
-        target="_blank">
+        target="_blank" rel="noopener">
         the road between us
       </a>
     </div>
@@ -687,79 +719,118 @@
   </div>
 </div>
 
-
 <script>
-// petals
-const petals = ['🌸','🌷','✿','·','°'];
-const pc = document.getElementById('petals');
-for (let i = 0; i < 18; i++) {
-  const p = document.createElement('div');
-  p.className = 'petal';
-  p.textContent = petals[Math.floor(Math.random() * petals.length)];
-  p.style.left = Math.random() * 100 + 'vw';
-  p.style.fontSize = (0.8 + Math.random() * 0.8) + 'rem';
-  p.style.animationDuration = (8 + Math.random() * 10) + 's';
-  p.style.animationDelay = (Math.random() * 12) + 's';
-  pc.appendChild(p);
+// ═════════════════════════════════════════════════════════════
+// CONFIG — centralized configuration
+// ═════════════════════════════════════════════════════════════
+const CONFIG = {
+  startDate: new Date('2026-05-21T20:49:00Z'),
+  petalEmojis: ['🌸','🌷','✿','·','°'],
+  confettiColors: ['#d97b84','#c9a96e','#f2c4c4','#fdf6ee','#8b3a4a','#f7e8d5'],
+  youtubeUrl: 'https://www.youtube.com/embed/OFXR8WzHHHI?autoplay=1&loop=1&playlist=OFXR8WzHHHI&controls=0&mute=0',
+  formspreeUrl: 'https://formspree.io/f/maqzqrzp'
+};
+
+// ═════════════════════════════════════════════════════════════
+// PETALS — animated background
+// ═════════════════════════════════════════════════════════════
+function initPetals() {
+  const pc = document.getElementById('petals');
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = CONFIG.petalEmojis[Math.floor(Math.random() * CONFIG.petalEmojis.length)];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.fontSize = (0.8 + Math.random() * 0.8) + 'rem';
+    p.style.animationDuration = (8 + Math.random() * 10) + 's';
+    p.style.animationDelay = (Math.random() * 12) + 's';
+    pc.appendChild(p);
+  }
 }
 
-// music
-let playing = false;
+// ═════════════════════════════════════════════════════════════
+// MUSIC PLAYER — with error handling
+// ═════════════════════════════════════════════════════════════
+let musicPlaying = false;
+
 function toggleMusic() {
-  const ytf  = document.getElementById('ytf');
+  const ytf = document.getElementById('ytf');
   const disc = document.getElementById('disc');
-  const btn  = document.getElementById('playBtn');
+  const btn = document.getElementById('playBtn');
   const bars = [document.getElementById('b1'), document.getElementById('b2'), document.getElementById('b3')];
 
-  if (!playing) {
-    ytf.src = 'https://www.youtube.com/embed/OFXR8WzHHHI?autoplay=1&loop=1&playlist=OFXR8WzHHHI&controls=0&mute=0';
-    disc.classList.add('on');
-    btn.innerHTML = '&#9646;&#9646;';
-    bars.forEach(b => b.classList.remove('still'));
-    playing = true;
+  if (!musicPlaying) {
+    try {
+      ytf.src = CONFIG.youtubeUrl;
+      disc.classList.add('on');
+      btn.innerHTML = '&#9646;&#9646;';
+      bars.forEach(b => b.classList.remove('still'));
+      musicPlaying = true;
+    } catch(e) {
+      console.error('Music loading error:', e);
+    }
   } else {
     ytf.src = 'about:blank';
     disc.classList.remove('on');
     btn.innerHTML = '&#9654;';
     bars.forEach(b => b.classList.add('still'));
-    playing = false;
+    musicPlaying = false;
   }
 }
 
-// timer — from may 21 2026 22:49 SAST
-const start = new Date('2026-05-21T20:49:00Z'); // 22:49 SAST = 20:49 UTC
+document.getElementById('playBtn').addEventListener('click', toggleMusic);
+
+// ═════════════════════════════════════════════════════════════
+// TIMER — dynamic countdown with memoization
+// ═════════════════════════════════════════════════════════════
+const timerCache = {};
 
 function runTimer() {
-  const diff = Date.now() - start.getTime();
+  const diff = Date.now() - CONFIG.startDate.getTime();
   const d = Math.floor(diff / 86400000);
   const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000)  / 60000);
-  const s = Math.floor((diff % 60000)    / 1000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
 
-  setV('t-d', d); setV('t-h', h); setV('t-m', m); setV('t-s', s);
-  setV('yt-d', d); setV('yt-h', h); setV('yt-m', m); setV('yt-s', s);
+  const values = { d, h, m, s };
+  
+  for (const [key, val] of Object.entries(values)) {
+    if (timerCache[key] !== val) {
+      timerCache[key] = val;
+      setTimerValue(`t-${key}`, val);
+      setTimerValue(`yt-${key}`, val);
+    }
+  }
 }
 
-function setV(id, val) {
+function setTimerValue(id, val) {
   const el = document.getElementById(id);
   if (!el) return;
-  const str = String(val).padStart(2,'0');
-  if (el.textContent !== str) {
-    el.classList.add('flip');
-    setTimeout(() => el.classList.remove('flip'), 180);
-    el.textContent = str;
-  }
+  
+  const str = String(val).padStart(2, '0');
+  el.textContent = str;
+  
+  // Add flip animation
+  el.classList.add('flip');
+  setTimeout(() => el.classList.remove('flip'), 180);
 }
 
 runTimer();
 setInterval(runTimer, 1000);
 
-// submit
+// ═════════════════════════════════════════════════════════════
+// FORM SUBMISSION — with error handling
+// ═════════════════════════════════════════════════════════════
 async function submitAnswer(choice) {
-  document.getElementById('btnGroup').querySelectorAll('button').forEach(b => b.disabled = true);
+  const btnGroup = document.getElementById('btnGroup');
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  
+  yesBtn.disabled = true;
+  noBtn.disabled = true;
 
-  const note = document.getElementById('noteInput').value  || '(nothing written)';
-  const wish = document.getElementById('wishInput').value  || '(nothing written)';
+  const note = document.getElementById('noteInput').value || '(nothing written)';
+  const wish = document.getElementById('wishInput').value || '(nothing written)';
 
   const fd = new FormData();
   fd.append('name', 'Boipelo');
@@ -769,12 +840,20 @@ async function submitAnswer(choice) {
   fd.append('time', new Date().toLocaleString('en-ZA', { timeZone: 'Africa/Johannesburg' }));
 
   try {
-    await fetch('https://formspree.io/f/maqzqrzp', {
-      method: 'POST', body: fd, headers: { Accept: 'application/json' }
+    const response = await fetch(CONFIG.formspreeUrl, {
+      method: 'POST',
+      body: fd,
+      headers: { Accept: 'application/json' }
     });
-  } catch(e) {}
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+  } catch(e) {
+    console.error('Form submission error:', e);
+  }
 
-  document.getElementById('btnGroup').style.display = 'none';
+  btnGroup.style.display = 'none';
 
   if (choice === 'yes') {
     document.getElementById('mainScreen').classList.remove('active');
@@ -786,24 +865,40 @@ async function submitAnswer(choice) {
   }
 }
 
-// confetti
+// Event listeners for buttons
+document.getElementById('yesBtn').addEventListener('click', () => submitAnswer('yes'));
+document.getElementById('noBtn').addEventListener('click', () => submitAnswer('no'));
+
+// ═════════════════════════════════════════════════════════════
+// CONFETTI — celebratory animation
+// ═════════════════════════════════════════════════════════════
 function confetti() {
-  const cols = ['#d97b84','#c9a96e','#f2c4c4','#fdf6ee','#8b3a4a','#f7e8d5'];
   for (let i = 0; i < 110; i++) {
     const c = document.createElement('div');
     c.className = 'cp';
+    const color = CONFIG.confettiColors[Math.floor(Math.random() * CONFIG.confettiColors.length)];
+    const size = 6 + Math.random() * 8;
+    const duration = 1.5 + Math.random() * 2.5;
+    const delay = Math.random() * 0.8;
+    
     c.style.cssText = `
-      left:${Math.random()*100}vw; top:-10px;
-      width:${6+Math.random()*8}px; height:${6+Math.random()*8}px;
-      background:${cols[Math.floor(Math.random()*cols.length)]};
-      transform:rotate(${Math.random()*360}deg);
-      animation-duration:${1.5+Math.random()*2.5}s;
-      animation-delay:${Math.random()*0.8}s;
+      left:${Math.random() * 100}vw; top:-10px;
+      width:${size}px; height:${size}px;
+      background:${color};
+      transform:rotate(${Math.random() * 360}deg);
+      animation-duration:${duration}s;
+      animation-delay:${delay}s;
     `;
+    
     document.body.appendChild(c);
     setTimeout(() => c.remove(), 4500);
   }
 }
+
+// ═════════════════════════════════════════════════════════════
+// INITIALIZATION
+// ═════════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', initPetals);
 </script>
 </body>
 </html>
